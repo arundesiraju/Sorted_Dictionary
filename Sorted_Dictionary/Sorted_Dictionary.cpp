@@ -40,12 +40,12 @@ int _tmain(int argc, _TCHAR* argv[])
 			}
 			else
 			{
-				// If it exists in dictionary, keep a backup of the count, then erase the entry, and re-add it with the count incremented
+				// If it exists in dictionary, update the count
 				int count = dictionary.find(buffer)->second;
-				dictionary.erase(buffer);
-
 				count++;
-				dictionary.insert(pair<string, int>(buffer, count)); 
+				
+				map<string, int>::iterator iter = dictionary.find(buffer);
+				iter->second = count; 
 			}	
 
 			// break when the last word is read
