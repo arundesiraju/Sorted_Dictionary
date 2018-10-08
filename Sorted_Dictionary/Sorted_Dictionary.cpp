@@ -9,6 +9,8 @@
 
 using namespace std;
 
+#define BUFFER_SIZE 4096
+
 int _tmain(int argc, _TCHAR* argv[])
 {
 	// Read the passage
@@ -21,10 +23,10 @@ int _tmain(int argc, _TCHAR* argv[])
 	{
 		string token;
 		char *nextToken = NULL;
-		char buffer[4096] = {'\0'};
+		char buffer[BUFFER_SIZE] = {'\0'};
 
 		// Store contents in buffer
-		fread((void*)buffer, 4096, 1, fp);
+		fread((void*)buffer, BUFFER_SIZE, 1, fp);
 		
 		while (true)
 		{
@@ -51,7 +53,7 @@ int _tmain(int argc, _TCHAR* argv[])
 				break;
 
 			//Copy nextToken into buffer
-			sprintf_s(buffer, 4096, "%s", nextToken);
+			sprintf_s(buffer, BUFFER_SIZE, "%s", nextToken);
 		}
 
 		fclose(fp);
