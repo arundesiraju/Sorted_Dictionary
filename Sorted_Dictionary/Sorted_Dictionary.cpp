@@ -40,12 +40,9 @@ int _tmain(int argc, _TCHAR* argv[])
 			}
 			else
 			{
-				// If it exists in dictionary, update the count
+				// If it exists in dictionary, update the count by 1
 				int count = dictionary.find(buffer)->second;
-				count++;
-				
-				map<string, int>::iterator iter = dictionary.find(buffer);
-				iter->second = count; 
+				dictionary.find(buffer)->second = ++count;
 			}	
 
 			// break when the last word is read
